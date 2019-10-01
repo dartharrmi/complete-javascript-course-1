@@ -237,3 +237,96 @@ console.log(agesArrays[fullAges.indexOf(true)]);
 // ES6
 console.log(agesArrays.findIndex(current => current >= 18));
 console.log(agesArrays.find(current => current >= 18));
+
+/////////////////////////////////////////////////////////////
+//                         Spread                          //
+/////////////////////////////////////////////////////////////
+
+function addFourAges(a, b, c, d) {
+    return a + b + c + d;
+}
+var sum = addFourAges(18, 30, 12, 21);
+console.log(sum);
+
+// ES5
+var agesSpread5 = [18, 30, 12, 21];
+var sumSpread5 = addFourAges.apply(null, agesSpread5);
+console.log(sumSpread5);
+
+// ES6
+const max3 = addFourAges(...agesSpread5);
+console.log(max3);
+
+const h1 = document.querySelector('h1');
+const boxesSpread = document.querySelectorAll('.box');
+const allSelectors = [h1, ...boxesSpread];
+Array.from(allSelectors).forEach(current => current.style.color = 'purple');
+
+/////////////////////////////////////////////////////////////
+//                      Rest Parameter                     //
+/////////////////////////////////////////////////////////////
+
+// ES5
+/* function isFullAge5(limit) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    args.forEach(function (current) {
+        console.log((2016 - current) >= limit);
+    })
+}
+isFullAge5(16, 1990, 1999, 1996, 2015, 1987); */
+
+// REST parameters are used in the functions dclaration to accept and arbitrary number of parameters.
+// ES6
+function isFullAge6(limit, ...years) {
+    years.forEach(year => console.log((2019 - year) >= limit));
+}
+isFullAge6(18, 1990, 1999, 1996, 2015, 1987);
+
+/////////////////////////////////////////////////////////////
+//                   Default Parameter                     //
+/////////////////////////////////////////////////////////////
+
+// Default values for parameters passed into a function
+
+// ES5
+/* function SmithPerson5(firstName, yearOfBirth, lastName, nationality) {
+    lastName === undefined ? lastName = 'Smith' : lastName = lastName
+    nationality === undefined ? nationality = 'Colombian' : nationality = nationality;
+
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.yearOfBirth = yearOfBirth;
+    this.nationality = nationality;
+} */
+
+// ES6
+function SmithPerson(firstName, yearOfBirth, lastName = 'Smith', nationality = 'American') {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.yearOfBirth = yearOfBirth;
+    this.nationality = nationality;
+}
+
+var newJhonSmith = new SmithPerson('Jhon', 1990);
+var newEmily = new SmithPerson('Emily', 1983, 'Diaz', 'Spanish');
+
+/////////////////////////////////////////////////////////////
+//                         Maps                            //
+/////////////////////////////////////////////////////////////
+const question = new Map();
+question.set('key1', 'What is the official name of the latest major Javascript version');
+question.set(1, 'ES5');
+question.set(2, 'ES6');
+question.set(3, 'ES2015');
+question.set(4, 'ES7');
+question.set('correct1', 3);
+question.set(true, 'Correct answer');
+question.set(false, 'Wrong answer');
+console.log(question.get('key1'));
+console.log(question.has(true));
+// question.forEach((value, key) => console.log(`This is key ${key} and it's value is ${value}`));
+for (let [key, value] of question.entries()) {
+    if (typeof (key) === 'number') {
+        console.log(`This is key ${key} and it's value is ${value}`);
+    }
+}
