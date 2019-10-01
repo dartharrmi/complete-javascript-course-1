@@ -1,9 +1,9 @@
-/* /////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
 //                Lecture 1: let and const                 //
 /////////////////////////////////////////////////////////////
 
 // ES5
-var nameES5 = 'Jane Smith';
+/* var nameES5 = 'Jane Smith';
 var ageES5 = 23;
 nameES5 = 'Jane Miller';
 console.log(nameES5);
@@ -33,14 +33,14 @@ function driversLicenseES6(passedTest) {
     }
     console.log(firstName + ' ' + yearOfBirth);
 }
-driversLicenseES6(true);
+driversLicenseES6(true); */
 
 /////////////////////////////////////////////////////////////
 //             Lecture 2: Blocks and IIFEs                 //
 /////////////////////////////////////////////////////////////
 
 // ES5
-(function () {
+/* (function () {
     var c = 3;
 })();
 console.log(c);
@@ -71,12 +71,12 @@ console.log(` This is ${firstName} ${lastName}. He was born in ${yearOfBirth} an
 const n = `${firstName} ${lastName}`;
 console.log(n.startsWith('J'));
 console.log(n.endsWith('Sm'));
-console.log(n.includes(' '));
+console.log(n.includes(' ')); */
 
 /////////////////////////////////////////////////////////////
 //              Lecture 3: Arrow Functions                 //
 /////////////////////////////////////////////////////////////
-const years = [1990, 1965, 1982, 1937];
+/* const years = [1990, 1965, 1982, 1937];
 
 // ES5
 var ages5 = years.map(function (element) {
@@ -88,7 +88,7 @@ console.log(ages5);
 let ages6 = years.map(element => 2016 - element);
 console.log(ages6);
 ages6 = years.map((element, index) => `Age element ${index + 1}: ${new Date().getFullYear() - element}`);
-console.log(ages6);
+console.log(ages6); */
 
 
 /////////////////////////////////////////////////////////////
@@ -96,7 +96,7 @@ console.log(ages6);
 /////////////////////////////////////////////////////////////
 
 // ES5
-var box5 = {
+/* var box5 = {
     color: 'green',
     position: 1,
     clickMe: function () {
@@ -156,14 +156,14 @@ Person.prototype.myFriends6 = function (friends) {
 }
 
 var friends = ['Bob', 'Jane', 'Mark'];
-new Person('John').myFriends6(friends);
+new Person('John').myFriends6(friends); */
 
 /////////////////////////////////////////////////////////////
 //                       Destructuring                     //
 /////////////////////////////////////////////////////////////
 
 // ES5
-var jhon = ['John', 26];
+/* var jhon = ['John', 26];
 var name = jhon[0];
 var age = jhon[1];
 
@@ -190,7 +190,7 @@ function calculareRetirement(year) {
     const age = new Date().getFullYear() - year;
     return [age, 65 - age];
 }
-const [age3, retirement] = calculareRetirement(2000); */
+const [age3, retirement] = calculareRetirement(2000);
 
 /////////////////////////////////////////////////////////////
 //                         Arrays                          //
@@ -202,10 +202,10 @@ const boxes = document.querySelectorAll('.box');
 var boxes5 = Array.prototype.slice.call(boxes);
 boxes5.forEach(function (element) {
     element.style.backgroundColor = 'dodgerblue';
-});
+}); */
 
 // ES6
-var boxes6 = Array.from(boxes);
+/* var boxes6 = Array.from(boxes);
 Array.from(boxes).forEach(element => element.style.backgroundColor = 'dodgerblue');
 
 // ES5
@@ -236,13 +236,13 @@ console.log(agesArrays[fullAges.indexOf(true)]);
 
 // ES6
 console.log(agesArrays.findIndex(current => current >= 18));
-console.log(agesArrays.find(current => current >= 18));
+console.log(agesArrays.find(current => current >= 18)); */
 
 /////////////////////////////////////////////////////////////
 //                         Spread                          //
 /////////////////////////////////////////////////////////////
 
-function addFourAges(a, b, c, d) {
+/* function addFourAges(a, b, c, d) {
     return a + b + c + d;
 }
 var sum = addFourAges(18, 30, 12, 21);
@@ -260,7 +260,7 @@ console.log(max3);
 const h1 = document.querySelector('h1');
 const boxesSpread = document.querySelectorAll('.box');
 const allSelectors = [h1, ...boxesSpread];
-Array.from(allSelectors).forEach(current => current.style.color = 'purple');
+Array.from(allSelectors).forEach(current => current.style.color = 'purple'); */
 
 /////////////////////////////////////////////////////////////
 //                      Rest Parameter                     //
@@ -277,10 +277,10 @@ isFullAge5(16, 1990, 1999, 1996, 2015, 1987); */
 
 // REST parameters are used in the functions dclaration to accept and arbitrary number of parameters.
 // ES6
-function isFullAge6(limit, ...years) {
+/* function isFullAge6(limit, ...years) {
     years.forEach(year => console.log((2019 - year) >= limit));
 }
-isFullAge6(18, 1990, 1999, 1996, 2015, 1987);
+isFullAge6(18, 1990, 1999, 1996, 2015, 1987); */
 
 /////////////////////////////////////////////////////////////
 //                   Default Parameter                     //
@@ -300,7 +300,7 @@ isFullAge6(18, 1990, 1999, 1996, 2015, 1987);
 } */
 
 // ES6
-function SmithPerson(firstName, yearOfBirth, lastName = 'Smith', nationality = 'American') {
+/* function SmithPerson(firstName, yearOfBirth, lastName = 'Smith', nationality = 'American') {
     this.firstName = firstName;
     this.lastName = lastName;
     this.yearOfBirth = yearOfBirth;
@@ -308,7 +308,7 @@ function SmithPerson(firstName, yearOfBirth, lastName = 'Smith', nationality = '
 }
 
 var newJhonSmith = new SmithPerson('Jhon', 1990);
-var newEmily = new SmithPerson('Emily', 1983, 'Diaz', 'Spanish');
+var newEmily = new SmithPerson('Emily', 1983, 'Diaz', 'Spanish'); */
 
 /////////////////////////////////////////////////////////////
 //                         Maps                            //
@@ -375,7 +375,7 @@ Person6.greeting(); */
 /////////////////////////////////////////////////////////////
 
 // ES5
-var Person5 = function (name, yearOfBirth, job) {
+/* var Person5 = function (name, yearOfBirth, job) {
     this.name = name;
     this.yearOfBirth = yearOfBirth;
     this.job = job;
@@ -422,4 +422,88 @@ class Athlete6 extends Person6 {
         console.log(this.medals);
     }
 }
-var athlete6 = new Athlete6('Jhon', 1990, 'Swimmer', 3, 10)
+var athlete6 = new Athlete6('Jhon', 1990, 'Swimmer', 3, 10) */
+
+/////////////////////////////////////////////////////////////
+//                       Chanllenge                        //
+/////////////////////////////////////////////////////////////
+
+class BaseReport {
+    constructor(name, buildYear) {
+        this.name = name;
+        this.buildYear = buildYear;
+    }
+}
+
+class ParkReport extends BaseReport {
+    constructor(name, buildYear, area, numberOfTrees) {
+        super(name, buildYear)
+        this.area = area;
+        this.numberOfTrees = numberOfTrees;
+    }
+
+    calculateTreeDensity() {
+        var density = this.numberOfTrees / this.area;
+        console.log(`Park ${this.name} has a tree density of ${density} trees per square km.`);
+    }
+}
+
+class StreetReport extends BaseReport {
+    constructor(name, buildYear, length, sizeClassification = 3) {
+        super(name, buildYear)
+        this.length = length;
+        this.sizeClassification = sizeClassification;
+    }
+
+    clasifyStreet() {
+        const classificationMap = new Map();
+        classificationMap.set(1, 'tiny');
+        classificationMap.set(2, 'small');
+        classificationMap.set(3, 'normal');
+        classificationMap.set(4, 'big');
+        classificationMap.set(5, 'huge');
+
+        console.log(`${this.name} is a ${classificationMap.get(this.sizeClassification)} street`);
+    }
+}
+
+const allParks = [
+    new ParkReport('Green Park', 1987, 0.2, 215),
+    new ParkReport('National Park', 1894, 2.9, 3541),
+    new ParkReport('Oak Park', 1953, 0.4, 949)
+];
+
+const allStreets = [
+    new StreetReport('Ocean Avenue', 1999, 1.1, 4),
+    new StreetReport('Evergreen Street', 2008, 2.7, 2),
+    new StreetReport('4th Street', 2015, 0.8),
+    new StreetReport('Sunset Boulevard', 1982, 2.5, 5)
+];
+
+function printParkReport() {
+    console.log('****************** Parks report ******************');
+
+    // Tree density
+    allParks.forEach(park => park.calculateTreeDensity());
+
+    // Averga age
+    let sumOfAges = 0;
+    const allAges = allParks.map(park => new Date().getFullYear() - park.buildYear).forEach(currentAge => sumOfAges += currentAge);
+    console.log(`Our 3 parks have an average age of ${sumOfAges / allParks.length}`);
+
+    // Park with more than 1K trees
+    var park1K = allParks.map(park => park.numberOfTrees).findIndex(current => current >= 1000);
+    console.log(`${park1K} has more than 1K trees`);
+}
+
+function printStreetReport() {
+    console.log('****************** Streets report ******************');
+
+    let lengthOfAllStreets = 0;
+    allStreets.map(street => street.length).forEach(length => lengthOfAllStreets += length)
+    console.log(`Our ${allStreets.length} streets have a total of ${lengthOfAllStreets} Km, with an average of ${lengthOfAllStreets / allStreets.length} Km.`)
+    allStreets.forEach(street => street.clasifyStreet());
+}
+
+printParkReport();
+printStreetReport();
