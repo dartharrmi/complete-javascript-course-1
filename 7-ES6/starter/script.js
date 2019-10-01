@@ -313,7 +313,9 @@ var newEmily = new SmithPerson('Emily', 1983, 'Diaz', 'Spanish');
 /////////////////////////////////////////////////////////////
 //                         Maps                            //
 /////////////////////////////////////////////////////////////
-const question = new Map();
+
+// Anything can be used as keys and are iterable, making esasy to manipulate the data within.
+/* const question = new Map();
 question.set('key1', 'What is the official name of the latest major Javascript version');
 question.set(1, 'ES5');
 question.set(2, 'ES6');
@@ -323,10 +325,47 @@ question.set('correct1', 3);
 question.set(true, 'Correct answer');
 question.set(false, 'Wrong answer');
 console.log(question.get('key1'));
-console.log(question.has(true));
 // question.forEach((value, key) => console.log(`This is key ${key} and it's value is ${value}`));
 for (let [key, value] of question.entries()) {
     if (typeof (key) === 'number') {
-        console.log(`This is key ${key} and it's value is ${value}`);
+        console.log(`Answer ${key}: ${value}`);
     }
 }
+const answer = parseInt(prompt('Write the correct answer'));
+console.log(question.get(answer === question.get('correct1'))); */
+
+/////////////////////////////////////////////////////////////
+//                      Classes                            //
+/////////////////////////////////////////////////////////////
+
+// ES5
+var Person5 = function (name, yearOfBirth, job) {
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
+}
+Person5.prototype.calculateAge = function () {
+    var age = new Date().getFullYear - this.yearOfBirth;
+    console.log(age);
+}
+var jhon5 = new Person5('Jhon', 1990, 'Teacher');
+
+// ES6
+class Person6 {
+    constructor(name, yearOfBirth, job) {
+        this.name = name
+        this.yearOfBirth = yearOfBirth
+        this.job = job
+    }
+
+    calculateAge() {
+        var age = new Date().getFullYear - this.yearOfBirth;
+        console.log(age);
+    }
+
+    static greeting() {
+        console.log("Hey there");
+    }
+}
+var jhon6 = new Person5('Jhon', 1990, 'Teacher of ES6');
+Person6.greeting();
