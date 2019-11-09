@@ -1,0 +1,4 @@
+9-forkify/starter/node_modules
+.babelrc
+package-lock.json
+9-forkify/starter/dist
