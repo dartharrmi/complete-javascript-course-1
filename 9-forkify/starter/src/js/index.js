@@ -1,4 +1,5 @@
 import Search from './modules/Search'
+import Recipe from './modules/Recipe'
 import * as searchView from './views/searchView';
 import { elements, renderLoader, hideLoader } from './views/base';
 
@@ -12,6 +13,7 @@ import { elements, renderLoader, hideLoader } from './views/base';
  */
 const state = {}
 
+//#region Search
 const controlSearch = async () => {
     // Gets the query from the view
     const query = searchView.getInput();
@@ -26,11 +28,15 @@ const controlSearch = async () => {
         renderLoader(elements.searchRes);
 
         // Search
-        await state.search.getResults();
+        try {
+            await state.search.getResults();
 
-        // Show the recipes
-        hideLoader();
-        searchView.renderResult(state.search.result);
+            // Show the recipes
+            hideLoader();
+            searchView.renderResult(state.search.result);
+        } catch (exception) {
+            alert('Something went wrong with the search...');
+        }
     }
 };
 elements.searchForm.addEventListener('submit', e => {
@@ -46,3 +52,25 @@ elements.searchResPages.addEventListener('click', e => {
         searchView.renderResult(state.search.result, goToPage);
     }
 });
+//#endregion
+
+//#region Recipe
+const controlRecipe = async () => {
+    const id = window.location.hash.replace('#', '');
+    if (id) {
+        state.recipe = new Recipe(id);
+        try {
+            await state.recipe.getRecipe();
+            state.recipe.calculateTime();
+            state.recipe.calculateServings();
+            console.log(state.recipe);
+        } catch (exception) {
+            alert('Error procesing the recipe');
+        }
+    }
+};
+
+// window.addEventListener('hashchange', controlRecipe);
+// window.addEventListener('load', controlRecipe)
+['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
+//#endregion
